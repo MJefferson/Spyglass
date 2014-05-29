@@ -60,7 +60,7 @@
   */
   Spyglass.event = function(eventName, metadata){
     if(Spyglass.enabled){
-      postEvent(eventName, metadata);
+      postEvent(eventName, metadata || {});
     }
   }
   
@@ -100,7 +100,8 @@
       contentType: "text/plain;charset=UTF-8",
       processData: false,
       data: JSON.stringify([{
-        type: event,
+        type: event.toLowerCase(),
+        given_type: event,
         time: (new Date()).toISOString(),
         data: prependEvent(data)
       }])
