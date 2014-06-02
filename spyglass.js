@@ -71,6 +71,7 @@
   var spyglassUIDKey = "sg-identifier";
   
   function prependEvent(eventData){
+    eventData.props = Object.keys(eventData);
     eventData.projectID = Spyglass.project;
     eventData.spyglassUID = getUID();
     return eventData;
